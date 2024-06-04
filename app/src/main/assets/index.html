@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <script>
+        function aaa(message){
+            document.getElementById('hh').innerHTML = message
+            alert(message)
+        }
+
+        function clickBtn(){
+
+            const message = document.getElementById('in1').value
+            // 안드로이드의 중계인 객체에게 원하는 기능요청
+            // javascriptInterface로 등록할 떄 지정한 별칭("Droid")객체가 웹뷰의 window 최상위 객체의 멤버로 등록됨.
+            window.Droid.setTextView(message)
+
+        }
+
+        function clickVBtn2(){
+
+            // 번역할 대상 글씨
+            let message = document.getElementById('in1').value
+            window.Droid.requestTranslate(message)
+
+        }
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+<h4>native android로 부터 받은 메세지</h4>
+<h5 id="hh">wait</h5>
+
+<hr>
+
+<h4>native android로 보내는 메세지</h4>
+<input type="text" placeholder="insert message" id="in1">
+<br>
+<button onclick="clickBtn()">send message to native android</button>
+
+<hr>
+
+<h4>native 고유 기능 사용하기</h4>
+<button>센서다루기</button>
+<button onclick="clickBtn2()">ML kit 언어번역 수행하기</button>
+</body>
+</html>
